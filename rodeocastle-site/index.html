@@ -227,25 +227,39 @@
   .rental-total { background: var(--navy); color: var(--cream); font-family: 'Noto Serif KR', serif; font-weight: 900; }
   .rental-total .lb { grid-column: 1 / 4; font-size: 11px; letter-spacing: 0.24em; color: var(--gold-2); font-weight: 500; font-family: var(--font-sans); }
   @media (max-width: 780px) {
+    .rental-wrap { background: transparent; border: none; box-shadow: none; }
     .rental-row {
       display: flex; flex-wrap: wrap; align-items: flex-start;
-      row-gap: 12px; column-gap: 10px; padding: 20px; font-size: 13px;
+      row-gap: 10px; column-gap: 10px; padding: 18px 20px 18px 24px; font-size: 13px;
+      position: relative; background: var(--panel); border: 1px solid var(--line);
+      margin-bottom: 10px; border-radius: 2px;
     }
+    .rental-row::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--gold);
+    }
+    .rental-wrap .rental-row:last-of-type { border: 1px solid var(--line); margin-bottom: 0; }
     .rental-head { display: none; }
     .rental-row .fl { flex: 0 0 auto; order: 1; }
-    .rental-row .unit { flex: 0 0 auto; order: 2; }
-    .rental-row .tenant { flex: 1 1 100%; order: 3; }
+    .rental-row .unit { flex: 0 0 auto; order: 2; align-self: center; }
+    .rental-row .tenant {
+      flex: 1 1 100%; order: 3; padding-top: 8px; margin-top: 2px;
+      border-top: 1px solid var(--line);
+    }
     .rental-row .num {
-      flex: 1 1 30%; order: 4;
+      flex: 1 1 0; min-width: 0; order: 4;
       text-align: right; display: flex; flex-direction: column; gap: 4px;
+      padding-top: 8px; border-top: 1px solid var(--line);
     }
     .rental-row .num::before {
       content: attr(data-label); display: block;
       color: var(--muted); font-size: 10px; letter-spacing: 0.06em; text-align: right;
     }
-    .rental-total { flex-wrap: wrap; padding: 20px; }
+    .rental-total {
+      flex-wrap: wrap; padding: 18px 20px 18px 24px;
+    }
+    .rental-total::before { background: var(--gold-2); }
     .rental-total .lb { flex: 1 1 100%; order: 1; }
-    .rental-total > div:not(.lb) { flex: 1 1 30%; text-align: right; }
+    .rental-total > div:not(.lb) { flex: 1 1 0; min-width: 0; text-align: right; }
   }
 
   /* ============ FLOOR DETAIL (in-page sections) ============ */
@@ -315,10 +329,14 @@
   .invest .section-title { color: var(--cream); }
   .invest .eyebrow { background: var(--gold); color: var(--navy); }
   .capital-bar { display: flex; height: 60px; margin: 40px 0 16px 0; overflow: hidden; border-radius: 2px; }
-  .capital-bar .loan { width: 80%; background: var(--gold); color: var(--navy); display: flex; align-items: center; padding: 0 24px; }
-  .capital-bar .eq { width: 20%; background: #FFBD65; color: var(--navy); display: flex; align-items: center; padding: 0 24px; }
-  .capital-bar .k { font-size: 10px; letter-spacing: 0.24em; }
-  .capital-bar .v { font-family: 'Noto Serif KR', serif; font-weight: 900; font-size: 20px; }
+  .capital-bar .loan { width: 80%; background: var(--gold); color: var(--navy); display: flex; align-items: center; padding: 0 24px; overflow: hidden; }
+  .capital-bar .eq { width: 20%; background: #FFBD65; color: var(--navy); display: flex; align-items: center; padding: 0 24px; overflow: hidden; }
+  .capital-bar .k { font-size: 10px; letter-spacing: 0.24em; white-space: nowrap; }
+  .capital-bar .v { font-family: 'Noto Serif KR', serif; font-weight: 900; font-size: 20px; white-space: nowrap; }
+  @media (max-width: 480px) {
+    .capital-bar { flex-direction: column; height: auto; }
+    .capital-bar .loan, .capital-bar .eq { width: 100%; padding: 12px 20px; }
+  }
   .cf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 60px; }
   @media (max-width: 780px) { .cf-grid { grid-template-columns: 1fr; } }
   .cf-item { padding: 32px 28px; background: rgba(255,255,255,0.05); border-left: 3px solid var(--gold); }
@@ -980,7 +998,7 @@
             <div style="color: var(--gold-2);">담당자</div>
             <div>나연주 실장</div>
             <div style="color: var(--gold-2);">대표전화</div>
-            <div><a href="tel:0223133838" style="color:var(--cream);">(02) 313-3838</a></div>
+            <div><a href="tel:023133838" style="color:var(--cream);">02-313-3838</a></div>
             <div style="color: var(--gold-2);">휴대전화</div>
             <div><a href="tel:01076798759" style="color:var(--cream); font-weight:700;">010-7679-8759</a></div>
           </div>
@@ -1016,7 +1034,7 @@
 <footer>
   <div class="foot-brand">RODEO CASTLE PLAZA</div>
   <div class="foot-line">경기 평택시 청북읍 옥길리 1156-4 · 안청로2길 75</div>
-  <div class="foot-line">(주)하이파크시티 · 나연주 실장 · (02) 313-3838 · 010-7679-8759</div>
+  <div class="foot-line">(주)하이파크시티 · 나연주 실장 · 02-313-3838 · 010-7679-8759</div>
   <div class="foot-tiny">© 로데오캐슬프라자 · 본 사이트의 정보는 투자제안서 및 임대현황 자료를 기반으로 하며, 개인 신용도 및 보증금 승계 조건에 따라 변동 가능합니다.</div>
 </footer>
 
