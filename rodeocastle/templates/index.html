@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>로데오캐슬 프라자 | 상가 건물 통매매 투자 제안</title>
+<meta name="description" content="경기도 평택시 청북신도시 로데오캐슬 프라자 상가 건물 통매매 안내. 5년 임대 완료, 대출활용 수익률 8.45%.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="brand">RODEO<span>CASTLE</span> PLAZA</div>
+    <ul>
+      <li><a href="#overview">매물개요</a></li>
+      <li><a href="#tenants">임대현황</a></li>
+      <li><a href="#yield">수익률</a></li>
+      <li><a href="#location">입지</a></li>
+      <li><a href="#contact">문의</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="kicker">PREMIUM COMMERCIAL ASSET · PYEONGTAEK CHEONGBUK</div>
+    <h1>로데오캐슬 프라자</h1>
+    <div class="sub">상가 건물 통매매 투자 제안서</div>
+    <div class="tag-row">
+      <span class="tag">5년 임대 완료</span>
+      <span class="tag">공실 리스크 ZERO</span>
+      <span class="tag">대출활용 수익률 8.45%</span>
+    </div>
+    <div class="meta">{{ contact.address }} · 대지 232평 · 연면적 384평 · 지상4층 · 2019년 12월 준공</div>
+    <div class="meta"><strong>{{ contact.company }} · {{ contact.manager }}</strong></div>
+    <div class="contact-line">매매 문의&nbsp; <span class="gold">{{ contact.phone }}</span> &nbsp;·&nbsp; <span class="gold">{{ contact.mobile }}</span></div>
+    <a href="#contact" class="btn">문의하기</a>
+  </div>
+</header>
+
+<section id="why">
+  <div class="container">
+    <div class="section-kicker">Why Invest</div>
+    <h2 class="section-title">핵심 투자 포인트 3가지</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="badge">01</div>
+        <h3>안정적 수익률</h3>
+        <p>보증금 3.95억 · 월세 2,210만원 확정임대
+대출 65% 활용 시 수익률 8.45%까지 상승</p>
+      </div>
+      <div class="card">
+        <div class="badge">02</div>
+        <h3>공실 리스크 Zero</h3>
+        <p>1층부터 4층까지 전 호실
+5년 임대 완료로 초기 공실 부담 없음</p>
+      </div>
+      <div class="card">
+        <div class="badge">03</div>
+        <h3>성장하는 입지가치</h3>
+        <p>11개 단지 8,000세대 배후수요
+신규 상권 형성 예정으로 미래가치 우수</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="overview" class="bg-ice">
+  <div class="container">
+    <div class="section-kicker">Property Overview</div>
+    <h2 class="section-title">매물 개요</h2>
+    <div class="overview-grid">
+      <div class="overview-visual">
+        <img src="{{ url_for('static', filename='img/building-front.jpg') }}" alt="로데오캐슬 프라자 건물 정면·측면">
+        <div class="caption">로데오캐슬 프라자<span class="sub">지상 4층 · 신축급 프라자 상가</span></div>
+      </div>
+      <table class="spec-table">
+        {% for k, v in specs %}
+        <tr><td>{{ k }}</td><td>{{ v }}</td></tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="tenants">
+  <div class="container">
+    <div class="section-kicker">Tenant Status</div>
+    <h2 class="section-title">임대 현황 한눈에 보기</h2>
+    <table class="tenant">
+      <tr><th>층</th><th>호실</th><th>임차 업종 / 임차인</th><th>비고</th></tr>
+      {% for floor, unit, tenant, note in tenants %}
+      <tr><td>{{ floor }}</td><td>{{ unit }}</td><td>{{ tenant }}</td><td>{{ note }}</td></tr>
+      {% endfor %}
+    </table>
+    <div class="note">※ 전 호실 5년 임대차 계약 완료 (2019년 12월 준공 기준)</div>
+  </div>
+</section>
+
+<section class="bg-ice">
+  <div class="container">
+    <div class="section-kicker">1F · 반려동물 특화</div>
+    <h2 class="section-title">1층 · 베테랑 동물병원</h2>
+    <div class="overview-grid">
+      <div>
+        <div class="photo-pair">
+          <img src="{{ url_for('static', filename='img/petshop-main.jpg') }}" alt="1층 베테랑 동물병원 매장 전면">
+          <img src="{{ url_for('static', filename='img/petshop-event.jpg') }}" alt="오픈기념 이벤트 배너">
+        </div>
+        <div class="ph-caption">실제 운영 중인 1층 매장 · 오픈기념 이벤트 진행 모습</div>
+      </div>
+      <table class="spec-table">
+        <tr><td>호실</td><td>101~108호 (1층 전체)</td></tr>
+        <tr><td>업종</td><td>베테랑 동물병원</td></tr>
+        <tr><td>보증금/월세</td><td>2억원 / 1,200만원</td></tr>
+      </table>
+    </div>
+    <div class="note">※ 반려동물 특화 업종으로 8,000세대 배후수요 대응</div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-kicker">Building Layout</div>
+    <h2 class="section-title">건물 층별 구성 종합</h2>
+    <div class="overview-block">
+      <img src="{{ url_for('static', filename='img/floor-overview.png') }}" alt="로데오캐슬 프라자 층별 구성 색상 안내도">
+    </div>
+    <div class="note">※ 1층 베테랑 P&amp;K 동물병원 · 2층 유한의원(외래)·Ann스터디카페 · 3~4층 유한의원(입원실)</div>
+  </div>
+</section>
+
+<section class="bg-ice">
+  <div class="container">
+    <div class="section-kicker">Floor Plans</div>
+    <h2 class="section-title">층별 상세 평면도</h2>
+    <div class="floor-grid">
+      <div class="floor-card">
+        <img src="{{ url_for('static', filename='img/floor1.png') }}" alt="1층 평면도">
+        <div class="fc-label"><span>1F</span>베테랑 동물병원 (101~108호)</div>
+      </div>
+      <div class="floor-card">
+        <img src="{{ url_for('static', filename='img/floor2.png') }}" alt="2층 평면도">
+        <div class="fc-label"><span>2F</span>유한의원 외래 · Ann스터디카페</div>
+      </div>
+      <div class="floor-card">
+        <img src="{{ url_for('static', filename='img/floor3.png') }}" alt="3층 평면도">
+        <div class="fc-label"><span>3F</span>유한의원 입원실 (301·302호)</div>
+      </div>
+      <div class="floor-card">
+        <img src="{{ url_for('static', filename='img/floor4.png') }}" alt="4층 평면도">
+        <div class="fc-label"><span>4F</span>유한의원 입원실 · 옥상정원</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="yield" class="bg-navy on-dark">
+  <div class="container">
+    <div class="section-kicker">Deal Terms</div>
+    <h2 class="section-title">매매가 및 임대 조건</h2>
+    <div class="stat-grid">
+      {% for v, l in deal_stats %}
+      <div class="stat-card"><div class="v">{{ v }}</div><div class="l">{{ l }}</div></div>
+      {% endfor %}
+    </div>
+    <div class="note on-dark">※ 상기 조건은 매도인 제공 자료 기준이며, 정확한 계약 조건은 현장 확인 후 확정됩니다.</div>
+  </div>
+</section>
+
+<section class="bg-ice">
+  <div class="container">
+    <div class="section-kicker">Leverage Structure</div>
+    <h2 class="section-title">레버리지 시뮬레이션 (대출 65% 기준)</h2>
+    <div class="tile-grid">
+      {% for v, l, accent in leverage %}
+      <div class="tile {{ 'accent' if accent }}"><div class="v">{{ v }}</div><div class="l">{{ l }}</div></div>
+      {% endfor %}
+    </div>
+    <div class="callout">
+      대출 65% 실행 시 실투자금액은 13.5억원으로, 자기자본 대비 레버리지를 활용한 투자수익률 극대화가 가능합니다.<br>
+      전 호실 5년 임대 완료 상태이므로 대출 실행 이후에도 임대료로 이자비용 대응이 가능한 구조입니다.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-kicker">Financial Summary</div>
+    <h2 class="section-title">투자 조건 요약</h2>
+    <table class="fin">
+      <tr>{% for h in fin.headers %}<th>{{ h }}</th>{% endfor %}</tr>
+      {% for a, b, c in fin.rows %}
+      <tr><td>{{ a }}</td><td>{{ b }}</td><td>{{ c }}</td></tr>
+      {% endfor %}
+    </table>
+    <div class="note">※ 상기 수치는 매도인 제공 자료 기준이며, 세금 · 취득 부대비용 등은 별도입니다.</div>
+  </div>
+</section>
+
+<section id="location" class="bg-ice">
+  <div class="container">
+    <div class="section-kicker">Location</div>
+    <h2 class="section-title">입지 개요 · 평택 청북신도시</h2>
+    <div class="loc-grid">
+      <div class="map-stack">
+        <figure>
+          <img src="{{ url_for('static', filename='img/map-demand.png') }}" alt="청북신도시 배후수요 지도">
+          <figcaption>11개 단지 8,000세대 배후수요 · 항아리상권</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ url_for('static', filename='img/map-future.png') }}" alt="한샘마트·대형사우나 입점 신상권 형성 지도">
+          <figcaption>한샘마트 · 대형사우나 입점으로 신(新)상권 형성 예정</figcaption>
+        </figure>
+      </div>
+      <ul class="loc-list">
+        {% for b in loc_bullets %}
+        <li><span class="num">{{ loop.index }}</span><span>{{ b }}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-kicker">Investment Checklist</div>
+    <h2 class="section-title">투자 포인트 요약</h2>
+    <div class="check-grid">
+      {% for item in checklist %}
+      <div class="check-item"><span class="mark">✓</span><span>{{ item }}</span></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="bg-navy-dark on-dark">
+  <div class="container">
+    <div class="contact-wrap">
+      <div>
+        <div class="section-kicker">Contact</div>
+        <h2 class="section-title">지금이 투자 적기입니다</h2>
+        <p style="font-size:18px; color:#d6ddec;">평택 청북신도시 로데오캐슬 프라자 · 상가 건물 통매매 50억원</p>
+      </div>
+      <div class="contact-card">
+        <div class="co">매매 문의 · {{ contact.company }}</div>
+        <div class="phone"><a href="tel:{{ contact.phone }}">{{ contact.phone }}</a></div>
+        <div class="manager">{{ contact.manager }}</div>
+        <div class="mobile"><a href="tel:{{ contact.mobile }}">{{ contact.mobile }}</a></div>
+        <div class="address">{{ contact.address }} · 로데오캐슬 프라자</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>RODEO CASTLE PLAZA &middot; {{ contact.company }} &middot; {{ contact.phone }}</footer>
+
+</body>
+</html>
